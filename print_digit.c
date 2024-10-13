@@ -6,7 +6,7 @@
 /*   By: lpittet <lpittet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 09:52:15 by lpittet           #+#    #+#             */
-/*   Updated: 2024/10/13 12:53:15 by lpittet          ###   ########.fr       */
+/*   Updated: 2024/10/13 21:12:42 by lpittet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	ft_putnbr_u(unsigned long int n, char *base)
 
 	len = 0;
 	base_len = ft_baselen(base);
-	if (n > base_len)
+	if (n >= base_len)
 	{
 		ft_putnbr_u(n / base_len, base);
 		ft_putchar(base[n % base_len]);
@@ -58,8 +58,8 @@ int	ft_putnbr_u(unsigned long int n, char *base)
 
 int	ft_putnbr_base(long int n, char *base)
 {
-	int			len;
-	int			base_len;
+	int	len;
+	int	base_len;
 
 	len = 0;
 	base_len = ft_baselen(base);
@@ -68,9 +68,9 @@ int	ft_putnbr_base(long int n, char *base)
 	{
 		ft_putchar('-');
 		ft_putnbr_base(-n, base);
-		len++;
+		//len++;
 	}
-	else if (n > base_len)
+	if (n >= base_len)
 	{
 		ft_putnbr_base(n / base_len, base);
 		ft_putchar(base[n % base_len]);
