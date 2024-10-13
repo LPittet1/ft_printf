@@ -1,2 +1,1 @@
-swap unsigned to unsigned_base for hexa and pointers,
 deal with error case;
