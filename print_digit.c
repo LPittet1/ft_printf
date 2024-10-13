@@ -6,7 +6,7 @@
 /*   By: lpittet <lpittet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 09:52:15 by lpittet           #+#    #+#             */
-/*   Updated: 2024/10/13 11:47:36 by lpittet          ###   ########.fr       */
+/*   Updated: 2024/10/13 12:53:15 by lpittet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,30 +39,20 @@ static int	print_len(long int n, int base_len)
 	return (len);
 }
 
-int	ft_putnbr_u(unsigned int n)
+int	ft_putnbr_u(unsigned long int n, char *base)
 {
-	int				temp;
 	int				len;
-	unsigned int	t;
+	unsigned int	base_len;
 
-	temp = 0;
 	len = 0;
-	t = n;
-	while (t != 0)
+	base_len = ft_baselen(base);
+	if (n > base_len)
 	{
-		t /= 10;
-		len++;
+		ft_putnbr_u(n / base_len, base);
+		ft_putchar(base[n % base_len]);
 	}
-	if (n == 0)
-		len = 1;
-	if (n > 10)
-	{
-		temp = n % 10;
-		ft_putnbr_u(n / 10);
-		ft_putchar(temp + 48);
-	}
-	else if (n < 10)
-		ft_putchar(n + 48);
+	else if (n < base_len)
+		ft_putchar(base[n % base_len]);
 	return (len);
 }
 

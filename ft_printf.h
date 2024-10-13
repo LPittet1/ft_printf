@@ -6,7 +6,7 @@
 /*   By: lpittet <lpittet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/12 18:59:39 by lpittet           #+#    #+#             */
-/*   Updated: 2024/10/13 11:44:19 by lpittet          ###   ########.fr       */
+/*   Updated: 2024/10/13 12:54:19 by lpittet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	ft_putchar(int c);
 int	ft_putstr(char *str);
 
 //print_digit.c
-int	ft_putnbr_u(unsigned int n);
+int	ft_putnbr_u(unsigned long int n, char *base);
 int	ft_putnbr_base(long int n, char *base);
 
 #endif
