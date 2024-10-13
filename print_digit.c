@@ -6,7 +6,7 @@
 /*   By: lpittet <lpittet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 09:52:15 by lpittet           #+#    #+#             */
-/*   Updated: 2024/10/13 21:12:42 by lpittet          ###   ########.fr       */
+/*   Updated: 2024/10/13 21:29:26 by lpittet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ int	ft_putnbr_base(long int n, char *base)
 	{
 		ft_putchar('-');
 		ft_putnbr_base(-n, base);
-		//len++;
+		len++;
 	}
 	if (n >= base_len)
 	{
