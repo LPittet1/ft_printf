@@ -1,1 +1,3 @@
 deal with error case;
+
+!! SEGFAULT if type is not compatible !!
