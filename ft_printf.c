@@ -6,7 +6,7 @@
 /*   By: lpittet <lpittet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/12 19:02:29 by lpittet           #+#    #+#             */
-/*   Updated: 2024/10/13 14:03:49 by lpittet          ###   ########.fr       */
+/*   Updated: 2024/10/13 21:17:59 by lpittet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,20 @@ int	ft_printf(const char *str, ...)
 			print_len += check_format(str[i], args);
 			i++;
 		}
-		ft_putchar(str[i]);
-		i++;
-		print_len++;
+		else
+		{
+			ft_putchar(str[i]);
+			print_len++;
+			i++;
+		}
 	}
 	return (print_len);
 }
+ #include <stdio.h>
+ int main()
+ {
+	int i = 101;
+	char *s = "Hello";
+	printf("%s %i %ctest1212\n", s, i, i);
+	ft_printf("%s %i %ctest1212\n",s, i, i);
+ }
