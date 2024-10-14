@@ -6,12 +6,11 @@
 /*   By: lpittet <lpittet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 09:52:15 by lpittet           #+#    #+#             */
-/*   Updated: 2024/10/14 13:47:47 by lpittet          ###   ########.fr       */
+/*   Updated: 2024/10/14 16:59:21 by lpittet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
 
 static int	print_len(long int n, int base_len)
 {

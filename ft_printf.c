@@ -6,7 +6,7 @@
 /*   By: lpittet <lpittet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/12 19:02:29 by lpittet           #+#    #+#             */
-/*   Updated: 2024/10/14 13:34:13 by lpittet          ###   ########.fr       */
+/*   Updated: 2024/10/14 16:58:42 by lpittet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ int	ft_printf(const char *str, ...)
 	va_list	args;
 	int		i;
 	int		print_len;
+	int		stock;
 
 	i = 0;
 	print_len = 0;
@@ -53,11 +54,15 @@ int	ft_printf(const char *str, ...)
 		if (str[i] == '%')
 		{
 			i++;
-			print_len += check_format(str[i], args);
+			stock = check_format(str[i], args);
+			if (stock == -1)
+				return (-1);
+			print_len += stock;
 		}
 		else
 		{
-			ft_putchar(str[i]);
+			if (ft_putchar(str[i]) == -1)
+				return (-1);
 			print_len++;
 		}
 		i++;
