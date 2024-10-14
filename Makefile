@@ -10,7 +10,8 @@ RM = rm -f
 
 SRCS = ft_printf.c \
 		print_alpha.c \
-		print_digit.c\
+		print_digit.c \
+		print_unsigned.c \
 
 OBJS = ${SRCS:.c=.o}
 

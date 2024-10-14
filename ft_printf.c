@@ -6,7 +6,7 @@
 /*   By: lpittet <lpittet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/12 19:02:29 by lpittet           #+#    #+#             */
-/*   Updated: 2024/10/13 21:30:41 by lpittet          ###   ########.fr       */
+/*   Updated: 2024/10/14 13:34:13 by lpittet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,11 @@ int	check_format(int c, va_list args)
 		print_len += ft_putstr(va_arg(args, char *));
 	if (c == 'p')
 		print_len += ft_putstr("0x")
-			+ ft_putnbr_u(va_arg(args, unsigned long int), "0123456789abcdef");
+			+ ft_putnbr_p(va_arg(args, unsigned long), "0123456789abcdef");
 	if (c == 'd')
-		print_len += ft_putnbr_base(va_arg(args, int), "0123456789");
+		print_len += ft_putnbr(va_arg(args, int), "0123456789");
 	if (c == 'i')
-		print_len += ft_putnbr_base(va_arg(args, int), "0123456789");
+		print_len += ft_putnbr(va_arg(args, int), "0123456789");
 	if (c == 'u')
 		print_len += ft_putnbr_u(va_arg(args, unsigned int), "0123456789");
 	if (c == 'x')
