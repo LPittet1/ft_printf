@@ -1,3 +1,1 @@
-deal with error case;
-
-!! SEGFAULT if type is not compatible !!
+deal with error case for strict if I want;
