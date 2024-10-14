@@ -6,7 +6,7 @@
 /*   By: lpittet <lpittet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/12 19:02:29 by lpittet           #+#    #+#             */
-/*   Updated: 2024/10/14 16:58:42 by lpittet          ###   ########.fr       */
+/*   Updated: 2024/10/14 17:28:24 by lpittet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,3 +70,10 @@ int	ft_printf(const char *str, ...)
 	va_end(args);
 	return (print_len);
 }
+
+/*#include <stdio.h>
+int main()
+{
+	ft_printf("mon %p\n", "");
+	printf("%d",printf(("%p\n", "")));
+}*/
