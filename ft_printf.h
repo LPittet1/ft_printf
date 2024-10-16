@@ -6,7 +6,7 @@
 /*   By: lpittet <lpittet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/12 18:59:39 by lpittet           #+#    #+#             */
-/*   Updated: 2024/10/14 16:58:57 by lpittet          ###   ########.fr       */
+/*   Updated: 2024/10/16 10:45:32 by lpittet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	ft_putstr(char *str);
 int	ft_putnbr(long int n, char *base);
 
 //print_unsigned.c
-int	ft_putnbr_p(unsigned long int n, char *base);
+int	ft_putnbr_p(unsigned long n, char *base, int prefix);
 int	ft_putnbr_u(unsigned int n, char *base);
 
 #endif

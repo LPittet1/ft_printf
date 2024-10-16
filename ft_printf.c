@@ -6,7 +6,7 @@
 /*   By: lpittet <lpittet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/12 19:02:29 by lpittet           #+#    #+#             */
-/*   Updated: 2024/10/14 17:28:24 by lpittet          ###   ########.fr       */
+/*   Updated: 2024/10/16 15:48:45 by lpittet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,10 @@
 
 int	check_format(int c, va_list args)
 {
-	int	print_len;
+	int		print_len;
+	char	*base_p;
 
+	base_p = "0123456789abcdef";
 	print_len = 0;
 	if (c == '%')
 		print_len += ft_putchar(c);
@@ -24,8 +26,7 @@ int	check_format(int c, va_list args)
 	if (c == 's')
 		print_len += ft_putstr(va_arg(args, char *));
 	if (c == 'p')
-		print_len += ft_putstr("0x")
-			+ ft_putnbr_p(va_arg(args, unsigned long), "0123456789abcdef");
+		print_len += ft_putnbr_p(va_arg(args, unsigned long), base_p, 0);
 	if (c == 'd')
 		print_len += ft_putnbr(va_arg(args, int), "0123456789");
 	if (c == 'i')
@@ -39,32 +40,48 @@ int	check_format(int c, va_list args)
 	return (print_len);
 }
 
+static int	iter(const char *str, va_list args, int *i)
+{
+	int	stock;
+	int	print_len;
+
+	print_len = 0;
+	if (str[*i] == '%')
+	{
+		*i += 1;
+		stock = check_format(str[*i], args);
+		if (stock == -1)
+		{	
+			va_end(args);
+			return (-1);
+		}
+		print_len += stock;
+	}
+	else
+	{
+		if (ft_putchar(str[*i]) == -1)
+			return (-1);
+		print_len++;
+	}
+	return (print_len);
+}
+
 int	ft_printf(const char *str, ...)
 {
 	va_list	args;
 	int		i;
 	int		print_len;
-	int		stock;
+	int		var;
 
 	i = 0;
 	print_len = 0;
 	va_start(args, str);
 	while (str[i])
 	{
-		if (str[i] == '%')
-		{
-			i++;
-			stock = check_format(str[i], args);
-			if (stock == -1)
-				return (-1);
-			print_len += stock;
-		}
-		else
-		{
-			if (ft_putchar(str[i]) == -1)
-				return (-1);
-			print_len++;
-		}
+		var = iter(str, args, &i);
+		if (var == -1)
+			return (-1);
+		print_len += var;
 		i++;
 	}
 	va_end(args);
@@ -74,6 +91,5 @@ int	ft_printf(const char *str, ...)
 /*#include <stdio.h>
 int main()
 {
-	ft_printf("mon %p\n", "");
-	printf("%d",printf(("%p\n", "")));
+	ft_printf("%X", 18446744071562067968);
 }*/

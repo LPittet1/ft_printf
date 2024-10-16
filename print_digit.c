@@ -6,7 +6,7 @@
 /*   By: lpittet <lpittet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 09:52:15 by lpittet           #+#    #+#             */
-/*   Updated: 2024/10/14 17:34:17 by lpittet          ###   ########.fr       */
+/*   Updated: 2024/10/16 14:20:10 by lpittet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,22 +27,40 @@ static int	print_len(long int n, int base_len)
 	return (len);
 }
 
-int	ft_putnbr(long int n, char *base)
+static int	neg_check(long *n)
+{
+	int	var;
+
+	var = ft_putchar('-');
+	*n *= -1;
+	return (var);
+}
+
+int	ft_putnbr(long n, char *base)
 {
 	int	len;
+	int	var;
 
 	len = print_len(n, 10);
 	if (n < 0)
 	{
-		ft_putchar('-');
-		n = -n;
+		if (neg_check(&n) == -1)
+			return (-1);
 	}
 	if (n >= 10)
 	{
-		ft_putnbr(n / 10, base);
-		ft_putchar(base[n % 10]);
+		var = ft_putnbr(n / 10, base);
+		if (var == -1)
+			return (-1);
+		var = ft_putchar(base[n % 10]);
+		if (var == -1)
+			return (-1);
 	}
 	else if (n < 10)
-		ft_putchar(base[n % 10]);
+	{
+		var = ft_putchar(base[n % 10]);
+		if (var == -1)
+			return (-1);
+	}
 	return (len);
 }
